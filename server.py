@@ -27,7 +27,7 @@ async def echo(websocket):
 
     try:
         async for message in websocket:
-            print(f"Received: {message}")
+            print(f"Received: {message} from websocket {websocket}")
             await broadcast_message(message)
             message = await asyncio.to_thread(input, "> ")
             await websocket.send(message)
